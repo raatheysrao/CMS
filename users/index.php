@@ -8,7 +8,7 @@ $ret=mysqli_query($bd, "SELECT * FROM users WHERE userEmail='".$_POST['username'
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
-$extra="change-password.php";//
+$extra="dashboard.php";//
 $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
