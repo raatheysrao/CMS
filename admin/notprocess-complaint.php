@@ -70,7 +70,8 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 								
 <tbody>
 <?php 
-$query=mysqli_query($bd, "select tblcomplaints.*,users.fullName as name from tblcomplaints join users on users.id=tblcomplaints.userId where tblcomplaints.status is null ");
+$categoryId = $_SESSION['categoryId'];
+$query=mysqli_query($bd, "select tblcomplaints.*,users.fullName as name from tblcomplaints join users on users.id=tblcomplaints.userId where tblcomplaints.status is null and tblcomplaints.category ='$categoryId'");
 while($row=mysqli_fetch_array($query))
 {
 ?>										

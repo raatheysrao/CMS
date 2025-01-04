@@ -5,14 +5,14 @@
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="index.html">
-			  		UMS Online Complaint Management System | Admin
+			  	<a class="brand" href="#">
+				  <?php echo $_SESSION['categoryDescription']; ?>
 			  	</a>
 
 				<div class="nav-collapse collapse navbar-inverse-collapse">
 					<ul class="nav pull-right">
 						<li><a href="#">
-							Admin
+							<?php echo isset($_SESSION['alogin']) ? htmlentities($_SESSION['alogin']) : 'Admin'; ?>
 						</a></li>
 						<li class="nav-user dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">

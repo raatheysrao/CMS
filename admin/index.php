@@ -6,7 +6,7 @@ include("include/config.php");
 // Add debugging function
 function debugLog($message, $type = 'info') {
     // Log to a secure location with limited permissions
-    $logFile = 'C:\Users\HackerBoyz\Desktop\login_debug.log';
+    $logFile = __DIR__ . '/login_debug.log';
     $timestamp = date('Y-m-d H:i:s');
     $logMessage = "[$timestamp][$type] $message\n";
     error_log($logMessage, 3, $logFile);
@@ -22,17 +22,21 @@ if(isset($_POST['submit'])) {
     debugLog("Password after hash: $password");
 
     // Log query information safely
-    $ret = mysqli_query($bd, "SELECT * FROM admin WHERE username='$username' and password='$password'");
+    $ret = mysqli_query($bd, "SELECT * FROM admin LEFT JOIN category ON admin.categoryId = category.id WHERE username='$username' and password='$password' ");
     if(!$ret) {
         debugLog("Database error: " . mysqli_error($bd), 'error');
     }
 
     $num = mysqli_fetch_array($ret);
+	debugLog("Fetched user data: " . print_r($num, true));
     if($num > 0) {
         debugLog("Successful login for user: $username");
         $extra = "notprocess-complaint.php";
         $_SESSION['alogin'] = $_POST['username'];
         $_SESSION['id'] = $num['id'];
+		$_SESSION['categoryId'] = $num['categoryId'];
+		$_SESSION['categoryDescription'] = $num['categoryDescription'];
+		debugLog("Category ID: " . $_SESSION['categoryId']);
         $host = $_SERVER['HTTP_HOST'];
         $uri = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
         header("location:http://$host$uri/$extra");
@@ -133,7 +137,7 @@ if(isset($_POST['submit'])) {
 		<div class="container">
 			 
 
-			<b class="copyright">&copy; 2023 CMS </b> All rights reserved.
+			<b class="copyright">&copy; 2025 CMS </b> All rights reserved.
 		</div>
 	</div>
 	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
