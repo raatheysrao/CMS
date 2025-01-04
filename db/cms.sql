@@ -112,7 +112,22 @@ CREATE TABLE `state` (
 --
 
 INSERT INTO `state` (`id`, `stateName`, `stateDescription`, `postingDate`, `updationDate`) VALUES
-(1, 'Selangor', '', '2023-11-06 19:00:39', '');
+(1, 'Johor', 'Located in the southern part of Peninsular Malaysia.', NOW(), ''),
+(2, 'Kedah', 'Known as the "Rice Bowl of Malaysia".', NOW(), ''),
+(3, 'Kelantan', 'Famous for its Malay culture and heritage.', NOW(), ''),
+(4, 'Melaka', 'A historic state known for its rich colonial history.', NOW(), ''),
+(5, 'Negeri Sembilan', 'Famous for Minangkabau culture.', NOW(), ''),
+(6, 'Pahang', 'Home to Taman Negara and the highlands of Cameron.', NOW(), ''),
+(7, 'Penang', 'Known as the food capital of Malaysia.', NOW(), ''),
+(8, 'Perak', 'Famous for its natural caves and colonial heritage.', NOW(), ''),
+(9, 'Perlis', 'The smallest state in Malaysia.', NOW(), ''),
+(10, 'Sabah', 'Known for Mount Kinabalu and its unique culture.', NOW(), ''),
+(11, 'Sarawak', 'Known for its rainforests and indigenous tribes.', NOW(), ''),
+(12, 'Selangor', 'The most developed state in Malaysia.', NOW(), ''),
+(13, 'Terengganu', 'Famous for its islands and traditional Malay crafts.', NOW(), ''),
+(14, 'Kuala Lumpur', 'The capital city of Malaysia.', NOW(), ''),
+(15, 'Labuan', 'An offshore financial center.', NOW(), ''),
+(16, 'Putrajaya', 'The federal administrative center of Malaysia.', NOW(), '');
 
 -- --------------------------------------------------------
 
@@ -133,7 +148,41 @@ CREATE TABLE `subcategory` (
 --
 
 INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `updationDate`) VALUES
-(1, 1, 'Computer', '2023-11-06 19:00:31', '');
+(1, 1, 'Software Engineering', NOW(), ''),
+(2, 1, 'Data Science', NOW(), ''),
+(3, 1, 'Networking', NOW(), ''),
+
+(4, 2, 'Civil Engineering', NOW(), ''),
+(5, 2, 'Electrical Engineering', NOW(), ''),
+(6, 2, 'Mechanical Engineering', NOW(), ''),
+
+(7, 3, 'Food Science', NOW(), ''),
+(8, 3, 'Nutrition', NOW(), ''),
+(9, 3, 'Food Technology', NOW(), ''),
+
+(10, 4, 'Anthropology', NOW(), ''),
+(11, 4, 'Psychology', NOW(), ''),
+(12, 4, 'Sociology', NOW(), ''),
+
+(13, 5, 'Medicine', NOW(), ''),
+(14, 5, 'Nursing', NOW(), ''),
+(15, 5, 'Pharmacy', NOW(), ''),
+
+(16, 6, 'Biology', NOW(), ''),
+(17, 6, 'Environmental Science', NOW(), ''),
+(18, 6, 'Geology', NOW(), ''),
+
+(19, 7, 'Agricultural Technology', NOW(), ''),
+(20, 7, 'Sustainable Agriculture', NOW(), ''),
+(21, 7, 'Crop Science', NOW(), ''),
+
+(22, 8, 'Tropical Forest Ecology', NOW(), ''),
+(23, 8, 'Wood Technology', NOW(), ''),
+(24, 8, 'Wildlife Management', NOW(), ''),
+
+(25, 9, 'Economics', NOW(), ''),
+(26, 9, 'Accounting', NOW(), ''),
+(27, 9, 'Business Management', NOW(), '');
 
 -- --------------------------------------------------------
 

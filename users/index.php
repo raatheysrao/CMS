@@ -18,8 +18,8 @@ if (isset($_POST['submit'])) {
         $status = 1;
         
         // Log successful login attempt
-        // $log = mysqli_query($bd, "INSERT INTO userlog(uid, username, userip, status) 
-        //     VALUES('" . $_SESSION['id'] . "', '" . $_SESSION['login'] . "', '$uip', '$status')");
+        $log = mysqli_query($bd, "INSERT INTO userlog(uid, username, userip, status) 
+            VALUES('" . $_SESSION['id'] . "', '" . $_SESSION['login'] . "', '$uip', '$status')");
         
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         header("location:http://$host$uri/$extra");
