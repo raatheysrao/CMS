@@ -1,20 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2023 at 02:12 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Generation Time: Jan 04, 2025 at 04:59 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `cms`
@@ -26,19 +27,28 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`id` int(11) NOT NULL,
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
   `username` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `updationDate` varchar(255) NOT NULL,
+  `categoryId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', '08-05-2020 07:23:45 PM');
+INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`, `categoryId`) VALUES
+(1, 'fki@admin', '54f1cc775f3627a6bf86838c5177ce71', '2025-01-04 08:14:26', 1),
+(2, 'fkj@admin', 'd2e4ec77e3e36caf02db403f9f7f0688', '', 2),
+(3, 'fsmp@admin', '8581eb28c5e0d1eb63c279745378c266', '', 3),
+(4, 'fssk@admin', '6c2d1299ac0a6e68608db653a620fddd', '', 4),
+(5, 'fpsk@admin', 'c8384ab00e004dd25eee1c9534e26e8d', '', 5),
+(6, 'fssa@admin', '1d8266e7d2f769ecf370076699731c3c', '', 6),
+(7, 'fpl@admin', 'b306b28ef367e6a4cce2e13bb8e046dd', '', 7),
+(8, 'fpt@admin', '6aece5d132ac8c545ee4106639f61205', '', 8),
+(9, 'fpep@admin', '36bdd7f46223645067c877638de858d5', '', 9);
 
 -- --------------------------------------------------------
 
@@ -46,20 +56,28 @@ INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 -- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-`id` int(11) NOT NULL,
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
   `categoryName` varchar(255) NOT NULL,
   `categoryDescription` longtext NOT NULL,
-  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDate`, `updationDate`) VALUES
-(1, 'IT', '', '2023-11-06 19:00:19', '');
+(1, 'FKI', 'Fakulti Komputeran Dan Informatik', '2023-11-06 19:00:19', '04-01-2025 02:24:46 PM'),
+(2, 'FKJ', 'Fakulti Kejuruteraan', '2025-01-04 08:55:15', ''),
+(3, 'FSMP', 'Fakulti Sains Makanan Dan Pemakanan', '2025-01-04 08:55:30', ''),
+(4, 'FSSK', 'Fakulti Sains Sosial Dan Kemanusiaan', '2025-01-04 08:55:49', ''),
+(5, 'FPSK', 'Fakulti Perubatan Dan Sains Kesihatan', '2025-01-04 08:56:15', ''),
+(6, 'FSSA', 'Fakulti Sains Dan Sumber Alam', '2025-01-04 08:56:30', ''),
+(7, 'FPL', 'Fakulti Pertanian Lestari', '2025-01-04 08:56:41', ''),
+(8, 'FPT', 'Fakulti Perhutanan Tropika', '2025-01-04 08:56:54', ''),
+(9, 'FPEP', 'Fakulti Perniagaan, Ekonomi Dan Perakaunan', '2025-01-04 08:57:09', '');
 
 -- --------------------------------------------------------
 
@@ -67,13 +85,13 @@ INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDa
 -- Table structure for table `complaintremark`
 --
 
-CREATE TABLE IF NOT EXISTS `complaintremark` (
-`id` int(11) NOT NULL,
+CREATE TABLE `complaintremark` (
+  `id` int(11) NOT NULL,
   `complaintNumber` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
   `remark` mediumtext NOT NULL,
-  `remarkDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `remarkDate` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -81,13 +99,13 @@ CREATE TABLE IF NOT EXISTS `complaintremark` (
 -- Table structure for table `state`
 --
 
-CREATE TABLE IF NOT EXISTS `state` (
-`id` int(11) NOT NULL,
+CREATE TABLE `state` (
+  `id` int(11) NOT NULL,
   `stateName` varchar(255) NOT NULL,
   `stateDescription` tinytext NOT NULL,
-  `postingDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `postingDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `state`
@@ -102,13 +120,13 @@ INSERT INTO `state` (`id`, `stateName`, `stateDescription`, `postingDate`, `upda
 -- Table structure for table `subcategory`
 --
 
-CREATE TABLE IF NOT EXISTS `subcategory` (
-`id` int(11) NOT NULL,
+CREATE TABLE `subcategory` (
+  `id` int(11) NOT NULL,
   `categoryid` int(11) NOT NULL,
   `subcategory` varchar(255) NOT NULL,
-  `creationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creationDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `subcategory`
@@ -123,20 +141,20 @@ INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `u
 -- Table structure for table `tblcomplaints`
 --
 
-CREATE TABLE IF NOT EXISTS `tblcomplaints` (
-`complaintNumber` int(11) NOT NULL,
+CREATE TABLE `tblcomplaints` (
+  `complaintNumber` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `category` int(11) NOT NULL,
-  `subcategory` varchar(255) NOT NULL,
+  `subcategory` varchar(255) DEFAULT NULL,
   `complaintType` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
+  `state` varchar(255) DEFAULT NULL,
   `noc` varchar(255) NOT NULL,
-  `complaintDetails` mediumtext NOT NULL,
+  `complaintDetails` varchar(2000) NOT NULL,
   `complaintFile` varchar(255) DEFAULT NULL,
-  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `regDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` varchar(50) DEFAULT NULL,
-  `lastUpdationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `lastUpdationDate` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -144,15 +162,15 @@ CREATE TABLE IF NOT EXISTS `tblcomplaints` (
 -- Table structure for table `userlog`
 --
 
-CREATE TABLE IF NOT EXISTS `userlog` (
-`id` int(11) NOT NULL,
+CREATE TABLE `userlog` (
+  `id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `userip` binary(16) NOT NULL,
-  `loginTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `loginTime` timestamp NOT NULL DEFAULT current_timestamp(),
   `logout` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -160,21 +178,21 @@ CREATE TABLE IF NOT EXISTS `userlog` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-`id` int(11) NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `fullName` varchar(255) DEFAULT NULL,
   `userEmail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `contactNo` bigint(11) DEFAULT NULL,
-  `address` tinytext,
+  `address` tinytext DEFAULT NULL,
   `State` varchar(255) DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `pincode` int(6) DEFAULT NULL,
   `userImage` varchar(255) DEFAULT NULL,
-  `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `regDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
   `status` int(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
@@ -184,49 +202,49 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `complaintremark`
 --
 ALTER TABLE `complaintremark`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `state`
 --
 ALTER TABLE `state`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tblcomplaints`
 --
 ALTER TABLE `tblcomplaints`
- ADD PRIMARY KEY (`complaintNumber`);
+  ADD PRIMARY KEY (`complaintNumber`);
 
 --
 -- Indexes for table `userlog`
 --
 ALTER TABLE `userlog`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -236,42 +254,51 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `complaintremark`
 --
 ALTER TABLE `complaintremark`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tblcomplaints`
 --
 ALTER TABLE `tblcomplaints`
-MODIFY `complaintNumber` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `complaintNumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
