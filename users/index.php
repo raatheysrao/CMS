@@ -72,6 +72,8 @@ $errormsg="Invalid email id or Contact no";
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
+	<link rel="shortcut icon" href="../static/fevicon.png" type="">
+	
 <script type="text/javascript">
 function valid()
 {
@@ -87,11 +89,6 @@ return true;
   </head>
 
   <body>
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-
 	  <div id="login-page">
 	  	<div class="container">
 	  	

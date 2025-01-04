@@ -27,21 +27,23 @@ if(isset($_POST['submit']))
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-    	<script>
-function userAvailability() {
-$("#loaderIcon").show();
-jQuery.ajax({
-url: "check_availability.php",
-data:'email='+$("#email").val(),
-type: "POST",
-success:function(data){
-$("#user-availability-status1").html(data);
-$("#loaderIcon").hide();
-},
-error:function (){}
-});
-}
-</script>
+	<link rel="shortcut icon" href="../static/fevicon.png" type="">
+
+	<script>
+	function userAvailability() {
+	$("#loaderIcon").show();
+	jQuery.ajax({
+	url: "check_availability.php",
+	data:'email='+$("#email").val(),
+	type: "POST",
+	success:function(data){
+	$("#user-availability-status1").html(data);
+	$("#loaderIcon").hide();
+	},
+	error:function (){}
+	});
+	}
+	</script>
   </head>
 
   <body>
