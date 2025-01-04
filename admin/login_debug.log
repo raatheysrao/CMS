@@ -1,0 +1,8 @@
+[2025-01-04 16:20:43][info] Login attempt for username: fki@admin
+[2025-01-04 16:20:43][info] Password before hash: fki@1234
+[2025-01-04 16:20:43][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 16:20:43][error] Database error: Unknown column 'admin.categoryId' in 'on clause'
+[2025-01-04 16:20:59][info] Login attempt for username: fki@admin
+[2025-01-04 16:20:59][info] Password before hash: fki1234
+[2025-01-04 16:20:59][info] Password after hash: f17279b1632fdad6f60f84e1d679ad7a
+[2025-01-04 16:20:59][error] Database error: Unknown column 'admin.categoryId' in 'on clause'
