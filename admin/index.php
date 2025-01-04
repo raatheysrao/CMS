@@ -74,7 +74,7 @@ if(isset($_POST['submit'])) {
 					<i class="icon-reorder shaded"></i>
 				</a>
 
-			  	<a class="brand" href="http://127.0.0.1:5000/">
+			  	<a class="brand" href="../index.php">
 			  		UMS Online Complaint Management System | Admin
 			  	</a>
 
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])) {
 				
 					<ul class="nav pull-right">
 
-						<li><a href="http://127.0.0.1:5000/">
+						<li><a href="../index.php">
 						Back to Portal
 						
 						</a></li>

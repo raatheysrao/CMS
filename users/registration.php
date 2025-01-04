@@ -77,7 +77,7 @@ echo htmlentities($msg);
 		                </a>
 		            </div>
 		<br>
-		<li><a href="http://127.0.0.1:5000/">
+		<li><a href="../index.php">
 						Back to Portal
 
 						</a></li>

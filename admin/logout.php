@@ -6,5 +6,5 @@ session_unset();
 $_SESSION['errmsg']="You have successfully logout";
 ?>
 <script language="javascript">
-document.location="http://127.0.0.1:5000/";
+document.location="./index.php";
 </script>
