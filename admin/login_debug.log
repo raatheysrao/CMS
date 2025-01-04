@@ -6,3 +6,120 @@
 [2025-01-04 16:20:59][info] Password before hash: fki1234
 [2025-01-04 16:20:59][info] Password after hash: f17279b1632fdad6f60f84e1d679ad7a
 [2025-01-04 16:20:59][error] Database error: Unknown column 'admin.categoryId' in 'on clause'
+[2025-01-04 18:04:56][info] Login attempt for username: fki@admin
+[2025-01-04 18:04:56][info] Password before hash: fki@1234
+[2025-01-04 18:04:56][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 18:04:56][info] Fetched user data: Array
+(
+    [0] => 1
+    [id] => 1
+    [1] => fki@admin
+    [username] => fki@admin
+    [2] => 54f1cc775f3627a6bf86838c5177ce71
+    [password] => 54f1cc775f3627a6bf86838c5177ce71
+    [3] => 2025-01-04 08:14:26
+    [updationDate] => 04-01-2025 02:24:46 PM
+    [4] => 1
+    [categoryId] => 1
+    [5] => 1
+    [6] => FKI
+    [categoryName] => FKI
+    [7] => Fakulti Komputeran Dan Informatik
+    [categoryDescription] => Fakulti Komputeran Dan Informatik
+    [8] => 2023-11-06 19:00:19
+    [creationDate] => 2023-11-06 19:00:19
+    [9] => 04-01-2025 02:24:46 PM
+)
+
+[2025-01-04 18:04:56][info] Successful login for user: fki@admin
+[2025-01-04 18:04:56][info] Category ID: 1
+[2025-01-04 18:33:11][info] Login attempt for username: fki@admin
+[2025-01-04 18:33:11][info] Password before hash: fki@1234
+[2025-01-04 18:33:11][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 18:33:11][info] Fetched user data: Array
+(
+    [0] => 1
+    [id] => 1
+    [1] => fki@admin
+    [username] => fki@admin
+    [2] => 54f1cc775f3627a6bf86838c5177ce71
+    [password] => 54f1cc775f3627a6bf86838c5177ce71
+    [3] => 2025-01-04 08:14:26
+    [updationDate] => 04-01-2025 02:24:46 PM
+    [4] => 1
+    [categoryId] => 1
+    [5] => 1
+    [6] => FKI
+    [categoryName] => FKI
+    [7] => Fakulti Komputeran Dan Informatik
+    [categoryDescription] => Fakulti Komputeran Dan Informatik
+    [8] => 2023-11-06 19:00:19
+    [creationDate] => 2023-11-06 19:00:19
+    [9] => 04-01-2025 02:24:46 PM
+)
+
+[2025-01-04 18:33:11][info] Successful login for user: fki@admin
+[2025-01-04 18:33:11][info] Category ID: 1
+[2025-01-04 19:10:03][info] Login attempt for username: fki@admin
+[2025-01-04 19:10:03][info] Password before hash: fki@1234
+[2025-01-04 19:10:03][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 19:10:03][error] Database error: Unknown column 'admin.categoryId' in 'on clause'
+[2025-01-04 19:14:05][info] Login attempt for username: fki@admin
+[2025-01-04 19:14:05][info] Password before hash: fki@1234
+[2025-01-04 19:14:05][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 19:14:05][info] Fetched user data: Array
+(
+    [0] => 1
+    [id] => 1
+    [1] => fki@admin
+    [username] => fki@admin
+    [2] => 54f1cc775f3627a6bf86838c5177ce71
+    [password] => 54f1cc775f3627a6bf86838c5177ce71
+    [3] => 2025-01-04 08:14:26
+    [updationDate] => 04-01-2025 02:24:46 PM
+    [4] => 1
+    [categoryId] => 1
+    [5] => 1
+    [6] => FKI
+    [categoryName] => FKI
+    [7] => Fakulti Komputeran Dan Informatik
+    [categoryDescription] => Fakulti Komputeran Dan Informatik
+    [8] => 2023-11-07 03:00:19
+    [creationDate] => 2023-11-07 03:00:19
+    [9] => 04-01-2025 02:24:46 PM
+)
+
+[2025-01-04 19:14:05][info] Successful login for user: fki@admin
+[2025-01-04 19:14:05][info] Category ID: 1
+[2025-01-04 19:15:01][info] Login attempt for username: 1234@gmail.com
+[2025-01-04 19:15:01][info] Password before hash: 12345678
+[2025-01-04 19:15:01][info] Password after hash: 25d55ad283aa400af464c76d713c07ad
+[2025-01-04 19:15:01][info] Fetched user data: 
+[2025-01-04 19:15:01][info] Failed login attempt for user: 1234@gmail.com
+[2025-01-04 19:15:14][info] Login attempt for username: fki@admin
+[2025-01-04 19:15:14][info] Password before hash: fki@1234
+[2025-01-04 19:15:14][info] Password after hash: 54f1cc775f3627a6bf86838c5177ce71
+[2025-01-04 19:15:14][info] Fetched user data: Array
+(
+    [0] => 1
+    [id] => 1
+    [1] => fki@admin
+    [username] => fki@admin
+    [2] => 54f1cc775f3627a6bf86838c5177ce71
+    [password] => 54f1cc775f3627a6bf86838c5177ce71
+    [3] => 2025-01-04 08:14:26
+    [updationDate] => 04-01-2025 02:24:46 PM
+    [4] => 1
+    [categoryId] => 1
+    [5] => 1
+    [6] => FKI
+    [categoryName] => FKI
+    [7] => Fakulti Komputeran Dan Informatik
+    [categoryDescription] => Fakulti Komputeran Dan Informatik
+    [8] => 2023-11-07 03:00:19
+    [creationDate] => 2023-11-07 03:00:19
+    [9] => 04-01-2025 02:24:46 PM
+)
+
+[2025-01-04 19:15:14][info] Successful login for user: fki@admin
+[2025-01-04 19:15:14][info] Category ID: 1
